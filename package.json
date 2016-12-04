@@ -28,7 +28,7 @@
   "engines": {
     "node": ">=4"
   },
-  "homepage": "https://github.com/yoshidax/posthtml-bemy",
+  "homepage": "https://www.npmjs.com/package/posthtml-bemy",
   "keywords": [
     "html",
     "posthtml",

@@ -5,8 +5,10 @@
 [![Build][build]][build-badge]
 [![Standard Code Style][style]][style-url]
 
+[![NPM](https://nodei.co/npm/posthtml-bemy.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/posthtml-bemy/)
+
 This plugin improves the tiredness of writing HTML with [MindBEMding](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
- using the power of posthtml.
+ using the power of [posthtml](https://github.com/posthtml/posthtml).
 
  This plugin is a different way than respecting [posthtml-bem](https://github.com/rajdee/posthtml-bem).  
 I recommend that you examine the difference of the method with posthtml-bem.
@@ -67,8 +69,8 @@ nothing.
 
 ### License [MIT](LICENSE)
 
-[npm]: https://img.shields.io/npm/v/posthtml.svg
-[npm-url]: https://npmjs.com/package/posthtml-bemy
+[npm]: https://badge.fury.io/js/posthtml-bemy.svg
+[npm-url]: https://badge.fury.io/js/posthtml-bemy
 
 [deps]: https://david-dm.org/yoshidax/posthtml-bemy.svg
 [deps-url]: https://david-dm.org/yoshidax/posthtml-bemy
