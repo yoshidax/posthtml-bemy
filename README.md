@@ -3,7 +3,6 @@
 [![NPM][npm]][npm-url]
 [![Deps][deps]][deps-url]
 [![Build][build]][build-badge]
-[![Coverage][cover]][cover-badge]
 [![Standard Code Style][style]][style-url]
 
 This plugin improves the tiredness of writing HTML with [MindBEMding](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
@@ -71,14 +70,11 @@ nothing.
 [npm]: https://img.shields.io/npm/v/posthtml.svg
 [npm-url]: https://npmjs.com/package/posthtml-bemy
 
-[deps]: https://david-dm.org/posthtml/posthtml.svg
-[deps-url]: https://david-dm.org/posthtml/posthtml
+[deps]: https://david-dm.org/yoshidax/posthtml-bemy.svg
+[deps-url]: https://david-dm.org/yoshidax/posthtml-bemy
 
 [style]: https://img.shields.io/badge/code%20style-standard-yellow.svg
 [style-url]: http://standardjs.com/
 
 [build]: https://travis-ci.org/posthtml/posthtml.svg?branch=master
 [build-badge]: https://travis-ci.org/yoshidax/posthtml-bemy?branch=master
-
-[cover]: https://coveralls.io/repos/posthtml/posthtml/badge.svg?branch=master
-[cover-badge]: https://coveralls.io/r/yoshidax/posthtml-bemy?branch=master
