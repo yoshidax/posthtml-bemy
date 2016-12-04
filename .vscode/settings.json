@@ -1,0 +1,39 @@
+// 既定の設定とユーザー設定を上書きするには、このファイル内に設定を挿入します
+{
+// Beautify config
+  // Use array to set indiviaul types to beautify: ["js", "html", "css"]. Requires "editor.formatOnSave" to be true.
+  "beautify.onSave": false,
+  // Link file types to the beautifier type
+  "beautify.language": {
+    "js": {
+      "type": [
+        "javascript",
+        "json"
+      ],
+      "filename": [
+        ".jshintrc",
+        ".jsbeautify"
+      ]
+    },
+    "css": [
+      "css",
+      "scss"
+    ],
+    "html": [
+      "htm",
+      "html"
+    ]
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true
+  },
+  // ファイルとフォルダーを除外するための glob パターンを構成します。
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "node_modules/": true
+  }
+}
