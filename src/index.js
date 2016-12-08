@@ -1,43 +1,53 @@
-module.exports = () => {
-  const normalizeClassesChildElements = (node, blockName) => {
+module.exports = (opts) => {
+  const optsDefault = {
+    bem: {
+      blockPrefix: '_',
+      elementPrefix: '__',
+      modifirePrefix: '--'
+    },
+    suitecss: {
+      blockPrefix: '_',
+      elementPrefix: '-',
+      modifirePrefix: '--'
+    }
+  }
+  if (!opts) {
+    opts = optsDefault.bem
+  } else if (opts.preset && Object.keys(optsDefault).includes(opts.preset)) {
+    opts = optsDefault[opts.preset]
+  }
+  const patternBlock = new RegExp(`(^| )${opts.blockPrefix}(?!${opts.blockPrefix.slice(0, 1)})([^\\s]+)`)
+  const patternModifire = new RegExp(`(^| )(${opts.modifirePrefix}(?!${opts.modifirePrefix.slice(0, 1)})[^\\s]+)`, 'g')
+  const patternElement = new RegExp(`(^| )(${opts.elementPrefix}(?!${opts.elementPrefix.slice(0, 1)})[^\\s]+)`)
+
+  const walk = (node, blockName) => {
     if (!node.content) {
       return
     }
+    const existClass = !!node.attrs && !!node.attrs.class
+    const isBlock = existClass && patternBlock.test(node.attrs.class)
+    const isElement = existClass && patternElement.test(node.attrs.class)
+
+    if (isBlock) {
+      blockName = blockName || node.attrs.class.match(patternBlock)[2]
+      node.attrs.class = node.attrs.class.replace(patternBlock, '$1$2')
+      node.attrs.class = node.attrs.class.replace(patternModifire, `$1${blockName}$2`)
+    }
+    if (isElement) {
+      const element = node.attrs.class.match(patternElement)[2]
+      node.attrs.class = node.attrs.class.replace(patternElement, `$1${blockName}$2`)
+      node.attrs.class = node.attrs.class.replace(patternModifire, `$1${blockName}${element}$2`)
+    }
     node.content.forEach((node) => {
-      if (node.attrs && node.attrs.class) {
-        // stop walking when it detects a new block.
-        if (node.attrs.class.trim().split(/\s+/).find((clazz) => /^_[a-zA-Z0-9]/.test(clazz))) {
-          return
-        }
-        let normalizeClasses = node.attrs.class.trim().split(/\s+/).map((clazz) => {
-          if (/^(__|--)[a-zA-Z0-9]/.test(clazz)) {
-            return `${blockName}${clazz}`
-          }
-          return clazz
-        })
-        node.attrs.class = normalizeClasses.join(' ')
+      const isBlock = node.attrs && node.attrs.class && patternBlock.test(node.attrs.class)
+      if (!isBlock) {
+        walk(node, blockName)
       }
-      normalizeClassesChildElements(node, blockName)
     })
   }
   return (tree) => {
-    tree.match({attrs: {class: /(\s|^)_[a-zA-Z0-9]/}}, (node) => {
-      let blockName
-      let normalizeClasses = node.attrs.class.trim().split(/\s+/).map((clazz) => {
-        if (/^_[a-zA-Z0-9]/.test(clazz)) {
-          blockName = clazz.replace(/^_/, '')
-          return blockName
-        }
-        return clazz
-      })
-      normalizeClasses = normalizeClasses.map((clazz) => {
-        if (/^--[a-zA-Z0-9]/.test(clazz)) {
-          return `${blockName}${clazz}`
-        }
-        return clazz
-      })
-      node.attrs.class = normalizeClasses.join(' ')
-      normalizeClassesChildElements(node, blockName)
+    tree.match({attrs: {class: patternBlock}}, (node) => {
+      walk(node)
       return node
     })
     return tree

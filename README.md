@@ -20,7 +20,7 @@ Before:
 // Modifire appends "--" to the prefix.
 // Yes!! You don't have to add "Block" to the "Element" or "Modifire" prefix!!
 <div class="_block --modifire">
-    <div class="__element __element--modifire">
+    <div class="__element --modifire">
         <div class="_block-child">
             <div class="__element-1">1</div>
             <div class="__element-2">2</div>
@@ -65,7 +65,32 @@ posthtml()
 
 ## Options
 
-nothing.
+| name | description | type | etc |
+| --- | --- | --- | --- |
+| `prest` | structural css naming style. <br>the block prefix is "`_`". | 'suitecss' | default: 'bem' |
+| `blockPrefix` | the prefix of the name representing the `block` in BEM. | string | default: '_' |
+| `elementPrefix` | the prefix of the name representing the `element` in BEM. | string | default: '__' |
+| `modifirePrefix` | the prefix of the name representing the `modifire` in BEM. | string' | default: '--' |
+
+* suitecss prefix  
+    ```js
+    // blockPrefix: _
+    // elementPrefix: -
+    // modifirePrefix: --
+    posthtml()
+        .use(posthtmlBemy({ preset: 'suitecss' }))
+        ....
+    ```
+* custom prefix  
+    ```js
+    posthtml()
+        .use(posthtmlBemy({
+            blockPrefix: '@',
+            elementPrefix: '---',
+            modifirePrefi: '___'
+        }))
+        ....
+    ```
 
 ### License [MIT](LICENSE)
 

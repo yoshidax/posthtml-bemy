@@ -6,7 +6,7 @@
   "configurations": [
     {
       "type": "node",
-      "runtimeExecutable": "/Users/dayoshix/Project/posthtml-plugin-bemy/node_modules/.bin/ava",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/ava",
       "request": "launch",
       "name": "プログラムの起動",
       "program": "${workspaceRoot}/test/test.js",
