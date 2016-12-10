@@ -1,7 +1,7 @@
 {
   "name": "posthtml-bemy",
   "description": "This plugin improves the tiredness of writing HTML with MindBEMding using the power of posthtml",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "yoshidax",
   "ava": {
     "verbose": "true"
