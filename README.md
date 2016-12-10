@@ -72,25 +72,28 @@ posthtml()
 | `elementPrefix` | the prefix of the name representing the `element` in BEM. | string | default: '__' |
 | `modifirePrefix` | the prefix of the name representing the `modifire` in BEM. | string' | default: '--' |
 
-* suitecss prefix  
-    ```js
-    // blockPrefix: _
-    // elementPrefix: -
-    // modifirePrefix: --
-    posthtml()
-        .use(posthtmlBemy({ preset: 'suitecss' }))
-        ....
-    ```
-* custom prefix  
-    ```js
-    posthtml()
-        .use(posthtmlBemy({
-            blockPrefix: '@',
-            elementPrefix: '---',
-            modifirePrefi: '___'
-        }))
-        ....
-    ```
+suitecss prefix
+
+```js
+// blockPrefix: "_"
+// elementPrefix: "-"
+// modifirePrefix: "--"
+posthtml()
+    .use(posthtmlBemy({ preset: 'suitecss' }))
+    ....
+```
+
+custom prefix
+
+```js
+posthtml()
+    .use(posthtmlBemy({
+        blockPrefix: '@',
+        elementPrefix: '---',
+        modifirePrefi: '___'
+    }))
+    ....
+```
 
 ### License [MIT](LICENSE)
 
