@@ -10,6 +10,8 @@
 This plugin improves the tiredness of writing HTML with [MindBEMding](http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
  using the power of [posthtml](https://github.com/posthtml/posthtml).
 
+![bemy-demo](./bemy-demo.gif)
+
  This plugin is a different way than respecting [posthtml-bem](https://github.com/rajdee/posthtml-bem).  
 I recommend that you examine the difference of the method with posthtml-bem.
 
